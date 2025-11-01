@@ -1,0 +1,26 @@
+<<<<<<< HEAD
+mongodb_host: "mongodb.kriiishmatic.fun"
+redis_host: "redis.kriiishmatic.fun"
+catalogue_host: "catalogue.kriiishmatic.fun"
+rabbitmq_host: "rabbitmq.kriiishmatic.fun"
+mysql_host: "mysql.kriiishmatic.fun"
+cart_host: "cart.kriiishmatic.fun"
+user_host: "user.kriiishmatic.fun"
+shipping_host: "shipping.kriiishmatic.fun"
+payment_host: "payment.kriiishmatic.fun"
+frontend_host: "frontend.kriiishmatic.fun"
+=======
+# mongodb_host: "mongodb.kriiishmatic.fun"
+# redis_host: "redis.kriiishmatic.fun"
+# catalogue_host: "catalogue.kriiishmatic.fun"
+# rabbitmq_host: "rabbitmq.kriiishmatic.fun"
+# mysql_host: "mysql.kriiishmatic.fun"
+# cart_host: "cart.kriiishmatic.fun"
+# user_host: "user.kriiishmatic.fun"
+# shipping_host: "shipping.kriiishmatic.fun"
+# payment_host: "payment.kriiishmatic.fun"
+# frontend_host: "frontend.kriiishmatic.fun"
+>>>>>>> 91274d7 (all)
+
+ansible_user: ec2-user
+ansible_password: DevOps321

@@ -1,0 +1,33 @@
+---
+- name: Creating VMs and updating DNS
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars:
+    # defaults (can be overridden via --extra-vars)
+    username: azureuser
+    instances:
+      - mysql
+    resource_group: myResourceGroup
+    vm_size: Standard_D4
+    ssh_pub_key_path: "/home/azureuser/.ssh/authorized_keys"
+  
+
+  tasks:
+    - name: Creating VMs
+      azure.azcollection.azure_rm_virtualmachine:
+        resource_group: "{{ resource_group }}"
+        name: "{{ item }}"
+        vm_size: "{{ vm_size }}"
+        admin_username: "{{ username }}"
+        ssh_public_keys:
+          - path: "/home/{{ username }}/.ssh/authorized_keys"
+            key_data: "{{ lookup('file', ssh_pub_key_path) }}"
+        image:
+          offer: UbuntuServer
+          publisher: Canonical
+          sku: "24_04-lts"
+          version: latest
+      loop: "{{ instances }}"
+

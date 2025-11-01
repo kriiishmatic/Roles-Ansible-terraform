@@ -1,0 +1,5 @@
+version: 1.0
+root-user: root
+mysql-password: RoboShop@1
+rabbitmq_user: roboshop
+rabbitmq_pass: roboshop123

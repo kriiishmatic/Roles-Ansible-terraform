@@ -1,0 +1,5 @@
+- name: Testing the include vs import modules
+  hosts: localhost
+  connection: local
+  roles:
+  - include-import

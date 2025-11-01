@@ -1,0 +1,9 @@
+- name: $$$$ FROM COMMON $$$Include yaml
+  ansible.builtin.debug:
+    msg: "Include says HI"
+  tags:
+  - prod
+
+- name: Import yaml
+  ansible.builtin.debug:
+    msg: " Import says Howdy "

@@ -1,0 +1,5 @@
+- name: Testing dynamic inventory using aws plugin
+  hosts: dynamic_backend
+  become: yes
+  roles:
+  - backend

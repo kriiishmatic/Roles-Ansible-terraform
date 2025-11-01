@@ -1,0 +1,6 @@
+- name: $$$ Installing nginx $$$
+  ansible.builtin.dnf:
+    name: nginx
+    state: present
+
+

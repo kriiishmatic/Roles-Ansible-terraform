@@ -1,0 +1,33 @@
+- name: Importing app-setup
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: app-setup.yaml
+  
+- name: Importing nodejs-setup
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: nodejs-setup.yaml
+
+- name: Copy mongod repo
+  ansible.builtin.copy:
+    src: mongo.repo
+    dest: /etc/yum.repos.d/mongo.repo
+
+- name: Installing mongodb
+  ansible.builtin.package:
+    name: mongodb-mongosh
+    state: present
+  ### we need to check first we have data in DB or not
+
+- name: Checking DB for master data
+  ansible.builtin.command: mongosh "{{ mongodb_host }}" --quiet --eval "db.getMongo().getDBNames().indexOf('catalogue')"
+  register: catalogue_output
+
+- name: Load master data with condition after reading output
+  ansible.builtin.shell: mongosh --host "{{ mongodb_host }}" </app/db/master-data.js
+  when : catalogue_output.stdout | int < 0
+
+- name: Copy service and restart
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: system-setup.yaml

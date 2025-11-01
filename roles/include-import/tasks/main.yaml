@@ -1,0 +1,12 @@
+# - name: Testing include vs Import
+#   # ansible.buitlin.include_role:
+#   ansible.builtin.import_role:
+#     name : common 
+#     tasks_from: IvsI.yaml
+
+- name: teating tags 
+  ansible.builtin.include_role:
+    name: common 
+    tasks_from: IvsI.yaml
+  tags:
+  - prod
