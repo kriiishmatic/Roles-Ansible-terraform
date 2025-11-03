@@ -1,1 +1,1 @@
-mongodb_host: mongodb.kriiishmatic.fun
+mongodb_host: mongodb-{{ env }}.kriiishmatic.fun
