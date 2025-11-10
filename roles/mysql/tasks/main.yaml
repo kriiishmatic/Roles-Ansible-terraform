@@ -3,8 +3,8 @@
     name: mysql-server
     state: present
   
-  - name: Ensure boto3 and botocore are installed
-    ansible.builtin.pip:
+ - name: Ensure boto3 and botocore are installed
+   ansible.builtin.pip:
       name:
         - boto3
         - botocore
