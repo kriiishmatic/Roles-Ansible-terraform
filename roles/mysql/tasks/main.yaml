@@ -3,13 +3,13 @@
     name: mysql-server
     state: present
   
- - name: Ensure boto3 and botocore are installed
+ - name: install mysql python libraries
    ansible.builtin.pip:
-      name:
-        - boto3
-        - botocore
-      state: present
-      executable: pip3
+      executable: pip3.9
+      name: "{{ item }}"
+      loop:
+      - botocore
+      - boto3
 
  - name: Copying mysql repo
  - name: Staring service
