@@ -10,8 +10,7 @@
       loop:
       - botocore
       - boto3
-
- - name: Copying mysql repo
+      
  - name: Staring service
    ansible.builtin.service:
      name: mysqld
