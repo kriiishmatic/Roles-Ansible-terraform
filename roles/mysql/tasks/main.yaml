@@ -2,7 +2,16 @@
    ansible.builtin.package:
     name: mysql-server
     state: present
-    
+  
+  - name: Ensure boto3 and botocore are installed
+    ansible.builtin.pip:
+      name:
+        - boto3
+        - botocore
+      state: present
+      executable: pip3
+
+ - name: Copying mysql repo
  - name: Staring service
    ansible.builtin.service:
      name: mysqld
